@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using SchoolManagementSystem.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<SchoolSysDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SchoolDb")));
 
 var app = builder.Build();
 
@@ -13,7 +19,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();

@@ -41,19 +41,25 @@
         <nav class="pc-sidebar">
             <div class="navbar-wrapper">
                 <div class="m-header">
-                    <a href="~/dashboard/index.html" class="b-brand text-primary">
+                <a asp-controller="Home" asp-action="Index" class="b-brand text-primary">
                         <!-- ========   Change your logo from here   ============ -->
-                        <img src="~/assets/images/logo-dark.svg" class="img-fluid logo-lg" alt="logo">
+                    <img src=@Url.Content("~/assets/images/logo-dark.svg") class="img-fluid logo-lg" alt="logo">
                     </a>
                 </div>
                 <div class="navbar-content">
                     <ul class="pc-navbar">
                         <li class="pc-item">
-                            <a href="~/dashboard/index.html" class="pc-link">
+                        <a asp-controller="Home" asp-action="Index" class="pc-link">
                                 <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
                                 <span class="pc-mtext">Dashboard</span>
                             </a>
                         </li>
+                    <li class="pc-item">
+                        <a asp-controller="Class" asp-action="Index" class="pc-link">
+                            <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
+                            <span class="pc-mtext">Class</span>
+                        </a>
+                    </li>
 
                         <li class="pc-item pc-caption">
                             <label>UI Components</label>
@@ -381,18 +387,35 @@
         <!-- [ Header ] end -->
 
     <div class="pc-container">
+        <div class="pc-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0)">Other</a></li>
+                                <li class="breadcrumb-item" aria-current="page">Sample Page</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
             @RenderBody() 
+            </div>
     </div>
 
     <footer class="pc-footer">
         <div class="footer-wrapper container-fluid">
             <div class="row">
                 <div class="col-sm my-1">
-                    <p class="m-0">Mantis &#9829; crafted by Team <a href="https://themeforest.net/user/codedthemes" target="_blank">Codedthemes</a> Distributed by <a href="https://themewagon.com/">ThemeWagon</a>.</p>
+                    <p class="m-0">SchoolSys &#9829; crafted by Team <a href="#" target="_blank">Sahar</a> Distributed by <a href="#">Aariz</a>.</p>
                 </div>
                 <div class="col-auto my-1">
                     <ul class="list-inline footer-link mb-0">
-                        <li class="list-inline-item"><a href="~/index.html">Home</a></li>
+                        <li class="list-inline-item"></li>
                     </ul>
                 </div>
             </div>
@@ -431,7 +454,7 @@
 
 
     <script>font_change("Public-Sans");</script>
-
+    @RenderSection("Scripts", required: false)
 
 
 </body>

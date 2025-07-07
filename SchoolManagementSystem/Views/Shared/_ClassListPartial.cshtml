@@ -1,0 +1,14 @@
+﻿@model SchoolManagementSystem.Models.Class
+
+<tr id="row_@Model.ClassId">
+    <td>@Model.ClassName</td>
+    <td>@Model.CreatedDate?.ToString("yyyy-MM-dd")</td>
+    <td>
+        <button class="btn btn-sm btn-primary me-1 edit-btn" data-id="@Model.ClassId" data-name="@Model.ClassName">
+            <i class="fas fa-edit"></i>
+        </button>
+        <button class="btn btn-sm btn-danger delete-btn" data-id="@Model.ClassId">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+    </td>
+</tr>
